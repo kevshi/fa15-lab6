@@ -1,8 +1,18 @@
 <div class="row marketing">
   <div class="col-lg-6">
     <% @users.each do |user| %>
+    <div class = "row">
       <h4><%= user.name %></h4>
       <p>Badges: <%= user.num_badges %></p>
+      <% unless user.pokemons.blank? %>
+      <h4>Pokemons:</h4>
+		<ul>
+	       	<% user.pokemons.each do |pokemon| %>
+				<li><%= pokemon.name %>: <%= pokemon.level %></li>
+	       	<% end %>
+    	</ul>
+    	<% end %>
+    </div>
     <% end %>
   </div>
 </div>
